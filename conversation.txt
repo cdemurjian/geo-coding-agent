@@ -1,0 +1,95 @@
+GEO submission workflow transcript
+=================================
+
+Initial request
+---------------
+The user asked for help reviewing:
+
+- a manuscript `.docx`
+- `seq_template.xlsx`
+- `context/GEO-updated.json`
+- `context/email_chain_dump.txt`
+
+The requested output was help filling these GEO fields:
+
+- Title
+- molecule
+- instrument model
+- description
+- tissue
+- genotype
+
+Evidence gathered
+-----------------
+The manuscript and email chain established:
+
+- organism: Caenorhabditis elegans
+- assay: RNA-Seq
+- tissue: whole worm
+- sex: hermaphrodites only
+- stage: L4 larvae picked and grown 6 hours to young adulthood
+- molecule: polyA RNA
+- layout: paired-end
+- instrument model: Element AVITI
+- growth conditions: NGM plates, OP50 lawn, 20C, normoxia
+- mutant strain identities and allele designations
+
+First workbook pass
+-------------------
+The workbook was updated to fill:
+
+- sample titles
+- tissue
+- genotype
+- molecule
+- paired-end layout
+- instrument model
+- sample descriptions
+- growth protocol
+- treatment protocol
+
+The first sample-row mapping assumed genotype blocks of five replicates each.
+
+Correction using FileMaker export
+---------------------------------
+The user later provided a FileMaker export showing the true row order:
+
+- replicate A with 9 genotypes
+- replicate B with the same 9 genotypes
+- replicate C with the same 9 genotypes
+- replicate D with the same 9 genotypes
+- replicate E with the same 9 genotypes
+
+The workbook was then corrected so each GEO sample row matched the FileMaker sample order.
+
+Title adjustments
+-----------------
+The sample `title` field was updated twice:
+
+1. to match the FileMaker sample names exactly
+2. then to make titles more descriptive while keeping the FileMaker sample ID at the front
+
+Current state after metadata filling
+------------------------------------
+The workbook now contains filled sample metadata for the requested fields.
+
+Still expected to be completed manually or from file inventory:
+
+- raw file names
+- processed data file names
+- MD5 checksums
+- paired-end experiment file table
+
+Template note
+-------------
+The GEO workbook highlights duplicate library names through built-in conditional formatting, but the library names in this workbook were checked and are unique.
+
+Packaging request
+-----------------
+The user then asked to:
+
+1. write this conversation to `conversation.txt`
+2. create a `README.md` that explains the repository and serves as a tutorial
+3. package the directory for sharing with other researchers
+4. convert the setup into a reusable Codex or Claude Code skill
+5. initialize the directory as a git repo
